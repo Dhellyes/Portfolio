@@ -12,7 +12,8 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
     publicPath: '/',
-    clean: true
+    clean: true,
+    assetModuleFilename: 'assets/[name][ext]'
   },
   module: {
     rules: [
@@ -36,7 +37,10 @@ module.exports = {
         test: /\.(png|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/images/[name][ext]'
+          filename: (pathData) => {
+            const filePath = pathData.filename.replace(/\\/g, '/');
+            return `assets/images/${path.basename(filePath)}`;
+          }
         }
       },
       {
@@ -58,6 +62,11 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'src/_redirects'),
           to: path.resolve(__dirname, 'dist')
+        },
+        {
+          from: path.resolve(__dirname, 'src/assets/images'),
+          to: path.resolve(__dirname, 'dist/assets/images'),
+          noErrorOnMissing: true // Évite les erreurs si le dossier n'existe pas
         }
       ]
     })
@@ -77,6 +86,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
-    modules: ['node_modules', 'src']
+    modules: ['node_modules', 'src'],
+    enforceExtension: false // J'ai retiré enforceModuleExtension qui n'était pas valide
   }
 };

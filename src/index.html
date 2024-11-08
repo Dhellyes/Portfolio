@@ -462,7 +462,7 @@
                 <!-- Projet DIGINAMIC -->
                 <article class="project-card">
                     <div class="project-image-container">
-                        <img src="./assets/images/Projects.png" alt="Project formation" class="project-image">
+                        <img src="./assets/images/projects.png" alt="Project formation" class="project-image">
                     </div>
                     <div class="project-content">
                         <div class="title-status-wrapper">
@@ -557,7 +557,8 @@
                     </div>
                     <div class="submit-form">
                         <h4 class="third-text"> C'est par ici! </h4>
-                        <form action="">
+                        <form  name="contact" method="POST" data-netlify="true" action="">
+                            <input type="hidden" name="form-name" value="contact" />
                             <div class="input-box">
                                 <input type="text" class="input">
                                 <label for="">Nom</label>
