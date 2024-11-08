@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap");
+:root {
+  --primary-color: #1a1a2e;
+  --accent-color: #c376e5;
+  --secondary-color: #4d8bf5;
+  --text-color: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  background: var(--primary-color);
+  color: var(--text-color);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes blink {
+  from, to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes particleAnimation {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(0);
+    opacity: 0;
+  }
+}
+.typing-effect::after {
+  content: "|";
+  animation: blink 1s step-end infinite;
+  color: var(--accent-color);
+}
+
+.enter-button {
+  padding: 15px 40px;
+  font-size: 1rem;
+  background: transparent;
+  border: 2px solid;
+  border-image: linear-gradient(45deg, var(--accent-color), var(--secondary-color)) 1;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.enter-button:hover {
+  background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  box-shadow: 0 0 20px rgba(195, 118, 229, 0.3);
+}
+
+.logo {
+  font-size: 7rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 8px;
+  position: relative;
+  filter: drop-shadow(0 0 10px rgba(195, 118, 229, 0.3));
+}
+
+.title {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+  color: #e6e6e6;
+  background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.intro-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(20, 1fr);
+  gap: 2px;
+  padding: 2px;
+  background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+  z-index: 1;
+}
+
+.grid-item {
+  background: var(--primary-color);
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s ease;
+  width: 100%;
+  height: 100%;
+}
+.grid-item:hover {
+  background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+  opacity: 0.3;
+  transform: scale(1.1);
+}
+
+.center-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+  width: 100%;
+  opacity: 0;
+}
+
+.main-content {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease;
+}
+.main-content.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.custom-navbar {
+  background: transparent;
+  padding: 1rem 0;
+}
+.custom-navbar .navbar-brand {
+  color: var(--accent-color);
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.custom-navbar .nav-link {
+  color: var(--text-color);
+  margin: 0 1rem;
+  position: relative;
+}
+.custom-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+  transition: width 0.3s ease;
+}
+.custom-navbar .nav-link:hover::after {
+  width: 100%;
+}
+.custom-navbar .github-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--accent-color);
+  border-radius: 5px;
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.custom-navbar .github-btn:hover {
+  background: var(--accent-color);
+  color: var(--primary-color);
+}
+
+.profile-img-container {
+  position: relative;
+}
+.profile-img-container::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.action-btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  margin-right: 1rem;
+  border: 2px solid var(--accent-color);
+  border-radius: 5px;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.action-btn:hover {
+  background: var(--accent-color);
+  color: var(--primary-color);
+}
+
+.social-icons a {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  transition: all 0.3s ease;
+}
+.social-icons a:hover {
+  color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+.title-gradient {
+  background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*# sourceMappingURL=main.css.map */

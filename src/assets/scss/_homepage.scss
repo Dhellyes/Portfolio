@@ -1,0 +1,412 @@
+@use 'variables' as *;
+
+.mainContent {
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.10s ease;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.navbar-brand{  
+    background: transparent;
+    padding: 1rem 0;
+
+    background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+    color: transparent;
+    background-clip: text;
+    font-weight: 600;
+    font-size: 1.5rem;
+
+    &:hover {
+        color: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+    }
+
+}
+
+.custom-navbar {
+    background: transparent;
+    padding: 1rem 0;
+
+
+
+    .nav-link {
+        color: var(--text-color);
+        margin: 0 1rem;
+        position: relative;
+        
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+            transition: width 0.3s ease;
+        }
+
+        &:hover::after {
+            width: 100%;
+        }
+    }
+
+    .github-btn {
+        padding: 0.5rem 1rem;
+        border: 2px solid var(--accent-color);
+        border-radius: 5px;
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: var(--accent-color);
+            color: var(--primary-color);
+        }
+    }
+}
+
+#menu {
+    color: white;
+    font-size: 3em;
+    display: none;
+
+}
+
+
+
+@media (max-width: 992px) {
+    .custom-navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba($primary-color, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 1rem 2rem;
+        z-index: 1002;
+        border-bottom: 1px solid rgba($accent-color, 0.1);
+ 
+        .container-fluid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+ 
+        // Logo
+        .navbar-brand span {
+            background: linear-gradient(45deg, $accent-color, $secondary-color);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 1.5rem;
+        }
+ 
+        // Zone des boutons (Github + Menu)
+        .justify-content-end {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+ 
+            // Style du bouton Github en version mobile
+            .github-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                border: 2px solid $accent-color;
+                border-radius: 5px;
+                color: $accent-color;
+                background: transparent;
+                transition: all $transition-speed ease;
+                padding: 0; // Reset padding
+                
+                // Cacher le texte "Visit Github"
+                font-size: 0;
+                
+                // Ajouter l'icône Github
+                &::before {
+                    content: '\f09b'; // Code de l'icône Github de Font Awesome
+                    font-family: 'Font Awesome 6 Brands';
+                    font-size: 1.2rem;
+                }
+ 
+                &:hover {
+                    background: $accent-color;
+                    color: $primary-color;
+                }
+            }
+ 
+            // Style du bouton menu
+            #menu {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                border: 2px solid $accent-color;
+                border-radius: 5px;
+                color: $accent-color;
+                font-size: 1.2rem;
+                cursor: pointer;
+                transition: all $transition-speed ease;
+ 
+                &:hover {
+                    background: $accent-color;
+                    color: $primary-color;
+                }
+ 
+                &.active {
+                    border-color: $text-color;
+                    color: $text-color;
+                }
+            }
+        }
+ 
+        // Menu déroulant
+        .navbar-collapse {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba($primary-color, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1001;
+            padding-top: 80px;
+            
+            opacity: 0;
+            visibility: hidden;
+            transition: all $transition-speed ease;
+ 
+            &.active {
+                opacity: 1;
+                visibility: visible;
+                display: flex !important;
+                justify-content: center;
+                align-items: center;
+            }
+ 
+            .navbar-nav {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+ 
+                .nav-item {
+                    .nav-link {
+                        font-size: 1.5rem;
+                        color: $text-color;
+                        text-decoration: none;
+                        transition: color $transition-speed ease;
+ 
+                        &:hover {
+                            color: $accent-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+ 
+    // Ajuster le contenu principal
+    .main-content {
+        padding-top: 80px;
+    }
+ }
+
+
+
+
+/**
+@media (max-width: 992px) {
+    // Style du bouton menu - doit rester visible au dessus du menu
+    #menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border: 2px solid #8257E6;
+        border-radius: 5px;
+        color: #8257E6;
+        cursor: pointer;
+        font-size: 1.2rem;
+        position: fixed; // Position fixe pour rester visible
+        top: 20px;      // Position en haut
+        right: 20px;    // Position à droite
+        z-index: 1002;  // Z-index plus élevé que le menu
+        background: transparent;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: #8257E6;
+            color: white;
+        }
+
+        // Style quand le menu est ouvert
+        &.active {
+            border-color: white;
+            color: white;
+            
+            &:hover {
+                background: white;
+                color: #8257E6;
+            }
+        }
+    }
+
+    .navbar-collapse {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(14, 13, 22, 0.98);
+        z-index: 1001;
+        
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            
+            .nav-item {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.3s ease;
+                
+                .nav-link {
+                    font-size: 1.5rem;
+                    color: white;
+                    text-align: center;
+                    
+                    &:hover {
+                        color: #8257E6;
+                    }
+                }
+            }
+        }
+    }
+
+    .navbar-collapse.active .nav-item {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.3s;
+    }
+
+    // Cacher le bouton Github sur mobile
+    .github-btn {
+        display: none;
+    }
+    .section {
+        scroll-margin-top: 80px; // Ajuster cette valeur selon la hauteur de votre navbar
+    }
+    
+}
+*/
+
+/* Media Queries pour le menu responsive */
+@media (max-width: 768px) {
+    .navbar-toggler {
+        display: block; /* Afficher le bouton hamburger */
+    }
+
+    .nav-links {
+        display: none; /* Cacher le menu par défaut */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--primary-color);
+        flex-direction: column;
+        padding: 1rem 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+        &.active { /* Classe pour afficher le menu quand il est actif */
+            display: flex;
+        }
+    }
+
+    .nav-link {
+        margin: 0.5rem 0;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .github-btn {
+        margin: 0.5rem 0;
+    }
+}
+
+
+
+
+
+/***      --------------------------------------------------*/
+
+
+
+
+.action-btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    margin-right: 1rem;
+    border: 2px solid var(--accent-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: var(--accent-color);
+        color: var(--primary-color);
+    }
+}
+
+.social-icons {
+    a {
+        color: var(--text-color);
+        font-size: 1.5rem;
+        margin-right: 1rem;
+        transition: all 0.3s ease;
+      
+
+        &:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+    }
+}
+
+.title-gradient {
+    background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+}

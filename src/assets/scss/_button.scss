@@ -1,0 +1,24 @@
+@use 'variables' as *;
+
+.enter-button {
+    padding: 15px 40px;
+    font-size: 1rem;
+    background: transparent;
+    border: 2px solid;
+    border-image: linear-gradient(45deg, var(--accent-color), var(--secondary-color)) 1;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  
+    &:hover {
+      background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      box-shadow: 0 0 20px rgba(195, 118, 229, 0.3);
+    }
+  }

@@ -1,0 +1,26 @@
+@use 'variables' as *;
+
+.logo {
+  font-size: 7rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 8px;
+  position: relative;
+  filter: drop-shadow(0 0 10px rgba(195, 118, 229, 0.3));
+}
+
+.title {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+  color: #e6e6e6;
+  background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+

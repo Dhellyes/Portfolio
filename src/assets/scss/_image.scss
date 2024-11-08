@@ -1,0 +1,133 @@
+@use 'variables' as *;
+
+.profile-img-container {
+    position: relative;
+    max-width: 300px;  // Taille maximale du conteneur
+    margin: 7px auto;    // Centre le conteneur
+    padding: 10px;     // Espace pour le bord
+    
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid $accent-color;
+        box-shadow: 0 0 20px rgba($accent-color, 0.2);
+        transition: transform $transition-speed ease;
+        
+        &:hover {
+            transform: scale(1.02);
+        }
+    }
+    
+    // Effet de bordure
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 2px solid $accent-color;
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+    }
+}
+
+.profile-img-container {
+    position: relative;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        border: 2px solid var(--accent-color);
+        border-radius: 50%;
+        z-index: -1;
+    }
+}
+
+.form_image{
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; // Centre horizontalement
+    text-align: center; // Centre le texte
+    
+
+}
+
+.images_c {
+                
+    width: 100%;
+    max-width: 300px;
+    margin: 20px 0;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba($accent-color, 0.2);
+        box-shadow: 0 0 20px rgba($accent-color, 0.1);
+}
+
+// Animation de pulsation pour la bordure
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.2;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
+
+// Responsive
+@media (max-width: 768px) {
+    .profile-img-container {
+        max-width: 200px;  // Plus petit sur mobile
+        
+        img {
+            border-width: 2px;
+        }
+    }
+}
+
+
+
+
+
+/*
+%forproduct4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0px;
+    margin-top: 20px 0 5px;
+    padding-right: 5px;
+
+}
+*/
+
+// premiere image //
+
+/*
+// les 4 image///
+.allproduit4 {
+    @extend %forproduct4;
+    margin-top: 40px
+}
+
+.nameproduit4 {
+    @extend %forproduct4;
+}
+
+.imgprice4{
+    @extend %forproduct4;
+}
+*/
+ 

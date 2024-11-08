@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - DHELLYE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./assets/scss/main.css">
+</head>
+
+<body>
+    <!---------------------- INTRODUCTION DU DEBUT ---------------------------->
+    <canvas id="particleCanvas"></canvas>
+    
+    <div id="centerContent">
+        <h1 class="title">Dhellye.S</h1>
+        <p class="subtitle">Développeuse Web Créative</p>
+        <button class="enter-button" id="enterButton">DÉCOUVRIEZ MON UNIVERS</button>
+    </div>
+
+    <main id="mainContent">
+
+
+        <!-----------------------------------NAVIGATION ---------------------------->
+
+        <!-- Main content qui apparaîtra après l'animation -->
+
+        <header>
+            <!-- Header/Navigation -->
+            <div class="header container py-3">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg custom-navbar">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#">
+                                <span>
+                                    Dhellye.S
+                                </span>
+                            </a>
+
+                            <div class=" navbar-collapse justify-content-center" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#About">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#Experience">Experience</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#Projects">Projects</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#Contact">Contact</a>
+                                    </li>
+
+                                </ul>
+
+
+                            </div>
+                            <div class="justify-content-end nav-item ms-2">
+                                <!-- Bouton Github (visible sur desktop) -->
+                                <a class="github-btn" href="https://github.com/Dhellyes">Visit Github</a>
+                                <!-- Bouton Menu (visible sur mobile) -->
+                                <i class="fa-solid fa-bars" id="menu"></i>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <!------------------------------------ ABOUT ---------------------------->
+
+        <!-- About Section -->
+        <section class="about-me py-5">
+            <div class="container mt-5">
+                <div class="row align-items-center">
+                    <div class="col-md-6 col-lg-6">
+                        <div class="profile-img-container text-center mb-4">
+                            <img src="./assets/images/profil.JPEG" alt=""
+                                class="img-fluid img-thumbnail width:100%; height:auto rounded-circle me-5""
+                            style=" width:100%; height:auto">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="profile-content">
+                            <h3 class="fw-light mb-2">Salut, je suis</h3>
+                            <h1 class="display-4 fw-bold mb-3">Dhellye.S EWEMBE</h1>
+                            <div class="developpe">
+                                <h2 class="title-gradient h3 mb-4">Developpeuse Web</h2>
+                            </div>
+                            <div class="mb-4">
+                                <a href="./assets/images/Dhellye EWEMBE-2.pdf" class="action-btn" target="_blank">Voir mon CV<i class="fas fa-file ms-2"></i></a>
+                                <a href="#Contact" class="action-btn">Contact</a>
+                            </div>
+                            <div class="social-icons">
+                                <a href="https://github.com/Dhellyes"><i class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/in/dhellye-shade-e-492386175/"><i
+                                        class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="About">
+            <div class="row_about py-5">
+                <div class="top-header row justify-content-center">
+                    <h2 class="section title text-center mb-5 title-gradient">
+                        A propos de moi
+                    </h2>
+                    <div class="row">
+                        <div class="about-info">
+                            <h3 class="text-center fw-light mb-4">Développeuse web en devenir avec un Master en
+                                Stratégie Marketing, </h3>
+                            <p class="text-justify">
+                                Passionnée par l'alliance entre technique et marketing, mon parcours unique forge
+                                un pont entre ces deux mondes ! Actuellement en formation de développement web chez
+                                DIGINAMIC, je combine code et stratégie dans ma quête pour devenir Business Analyst.
+                                <br> <br>Cette double approche n'est pas le fruit du hasard : maîtriser le développement
+                                web
+                                aujourd'hui me permettra de mieux traduire les besoins business demain. Ce qui m'anime ?
+                                Transformer des idées en solutions numériques élégantes et efficaces, en plaçant
+                                toujours
+                                l'utilisateur au cœur de ma démarche stratégique.
+                            </p>
+                            
+                            <a href="./assets/images/Dhellye EWEMBE-2.pdf" class="action-btn" target="_blank">Voir mon CV <i class="fas fa-file ms-2"></i></a></button>
+                           
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!------------------------------- EXPERIENCE ---------------------------->
+
+        <section id="Experience">
+            <div class="container">
+                <h2 class="section title">Experience</h2>
+                <div class="cards-container">
+                    <!-- Première carte -->
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="card-front">
+                                <div class="icon">🎓</div>
+                                <h2>Formation <br>Bac +2</h2>
+                                <p>Develloppeur web chez DIGINAMIC</p>
+                                <span class="project-status status-ongoing">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                    En cours
+                                </span>
+                            </div>
+
+                            <div class="card-back">
+                                <div class="icon">🎓</div>
+                                <h2>Master II <br>en 2021</h2>
+                                <p>Marketing strategie et Commercial a IDELCA Business School</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Deuxième carte -->
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="card-front">
+                                <div class="icon">🇨🇦</div>
+                                <h2>Cannada Access English 2024</h2>
+                                <p>Anglais entre sirop d'érable et poutine</p>
+
+                            </div>
+
+                            <div class="card-back">
+                                <div class="icon">🇲🇹</div>
+                                <h2> Malte - English Path 2023</h2>
+                                <p>Une aventure linguistique et culturelle
+                                    pour booster mon profil international</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Deuxième carte -->
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="card-front">
+                                <div class="icon">👔</div>
+                                <h2>Responsable Boutique <br> 2019-2022</h2>
+                                <p> Management, stratégie commerciale & relation client</p>
+                            </div>
+
+                            <div class="card-back">
+                                <div class="icon">🔍</div>
+
+                                <p>Du conseil client à la gestion d'équipe,
+                                    j'ai piloté avec succès une boutique en développant stratégie
+                                    commerciale et fidélisation client.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+
+
+
+        <!------------------------------- COMPETEMCE ---------------------------->
+
+
+        <section class="skills-section">
+            <!-- Full Stack Tools -->
+            <div class="skills-category">
+                <h3 class="category-title">Outils Full Stack</h3>
+                <div class="skills-row">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <div class="skill-front">
+                                <i class="fab fa-html5"></i>
+                                <span class="skill-name">HTML5</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <div class="skill-front">
+                                <i class="fab fa-css3-alt"></i>
+                                <span class="skill-name">CSS3</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <div class="skill-front">
+                                <i class="fab fa-js"></i>
+                                <span class="skill-name">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <div class="skill-front">
+                                <i class="fab fa-php"></i>
+                                <span class="skill-name">PHP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <div class="skill-front">
+                                <i class="fab fa-react"></i>
+                                <span class="skill-name">React</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <div class="skill-front">
+                                <i class="fab fa-node-js"></i>
+                                <span class="skill-name">Node.js</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <div class="skill-front">
+                                <i class="fas fa-database"></i>
+                                <span class="skill-name">MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Tools -->
+            <div class="skills-category">
+                <h3 class="category-title">Outils Techniques</h3>
+                <div class="skills-row">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <div class="skill-front">
+                                <i class="fab fa-git-alt"></i>
+                                <span class="skill-name">Git</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <div class="skill-front">
+                                <i class="fab fa-github"></i>
+                                <span class="skill-name">GitHub</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <div class="skill-front">
+                                <i class="fas fa-code"></i>
+                                <span class="skill-name">VS Code</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <div class="skill-front">
+                                <i class="fab fa-figma"></i>
+                                <span class="skill-name">Figma</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <div class="skill-front">
+                                <i class="fas fa-terminal"></i>
+                                <span class="skill-name">Terminal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marketing & Business Tools -->
+            <div class="skills-category">
+                <h3 class="category-title">Stratégie Marketing & Commercial</h3>
+                <div class="skills-row">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <div class="skill-front">
+                                <i class="fas fa-search"></i>
+                                <span class="skill-name">SEO</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <div class="skill-front">
+                                <i class="fas fa-chart-line"></i>
+                                <span class="skill-name">Analytics</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <div class="skill-front">
+                                <i class="fas fa-bullhorn"></i>
+                                <span class="skill-name">Marketing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <div class="skill-front">
+                                <i class="fas fa-comments"></i>
+                                <span class="skill-name">Social Media</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <div class="skill-front">
+                                <i class="fas fa-mail-bulk"></i>
+                                <span class="skill-name">Emailing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!---------------------- PROJECT ---------------------------->
+
+
+        <section id="Projects" class="projects-section">
+            <h2 class="section title  text-center mb-5 title-gradient">
+                Projects
+            </h2>
+            <div class="projects-container">
+                <!-- Portfolio Personnel -->
+                <article class="project-card">
+                    <div class="project-image-container">
+                        <img src="./assets/images/porfollio.png" alt="Portfolio Personnel" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <div class="title-status-wrapper">
+                            <h3 class="project-title">
+                                <span>💼</span>
+                                Portfolio Personnel
+                            </h3>
+                            <span class="project-status status-completed">
+                                <i class="fas fa-check-circle"></i>
+                                Complété
+                            </span>
+                        </div>
+                        <p class="project-description">
+                            Création de mon portfolio professionnel avec une interface moderne et interactive.
+                        </p>
+                        <ul class="project-features">
+                            <li>🎨 Design responsive et animations personnalisées</li>
+                            <li>👥 Interface utilisateur intuitive</li>
+                            <li>⚡ Optimisation des performances</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-html5"></i>HTML5</span>
+                            <span class="tech-tag"><i class="fab fa-sass"></i>SCSS</span>
+                            <span class="tech-tag"><i class="fab fa-js"></i>JavaScript</span>
+                            <span class="tech-tag"><i class="fas fa-code"></i>Animation</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Site Restaurant -->
+                <article class="project-card">
+                    <div class="project-image-container">
+                        <img src="./assets/images/saveurs  de pignan.png" alt="Site Restaurant" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <div class="title-status-wrapper">
+                            <h3 class="project-title">
+                                <span>🍽️</span>
+                                Site Vitrine Restaurant
+                            </h3>
+                            <span class="project-status status-ongoing">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                En cours
+                            </span>
+                        </div>
+                        <p class="project-description">
+                            Développement d'un site vitrine moderne pour un restaurant.
+                        </p>
+                        <ul class="project-features">
+                            <li>📱 Intégration de menu interactif</li>
+                            <li>📅 Système de réservation</li>
+                            <li>🖼️ Galerie photos responsive</li>
+                            <li>⚙️ Interface d'administration</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-html5"></i>HTML5</span>
+                            <span class="tech-tag"><i class="fab fa-css3-alt"></i>CSS3</span>
+                            <span class="tech-tag"><i class="fab fa-js"></i>JavaScript</span>
+                            <span class="tech-tag"><i class="fab fa-php"></i>PHP</span>
+                            <span class="tech-tag"><i class="fas fa-database"></i>MySQL</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projet DIGINAMIC -->
+                <article class="project-card">
+                    <div class="project-image-container">
+                        <img src="./assets/images/Projects.png" alt="Project formation" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <div class="title-status-wrapper">
+                            <h3 class="project-title">
+                                <span>🎓</span>
+                                Projet DIGINAMIC
+                            </h3>
+                            <span class="project-status status-ongoing">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                En cours
+                            </span>
+                        </div>
+                        <p class="project-description">
+                            Développement full-stack dans le cadre de la formation.
+                        </p>
+                        <ul class="project-features">
+                            <li>📊 Analyse des besoins utilisateurs</li>
+                            <li>🎨 Maquettage et intégration</li>
+                            <li>💻 Développement front-end et back-end</li>
+                            <li>🔄 Méthodes agiles</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-react"></i>React</span>
+                            <span class="tech-tag"><i class="fab fa-node"></i>Node.js</span>
+                            <span class="tech-tag"><i class="fas fa-database"></i>SQL</span>
+                            <span class="tech-tag"><i class="fab fa-git-alt"></i>Git</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- EBIKEPREMIUM -->
+                <article class="project-card">
+                    <div class="project-image-container">
+                        <img src="./assets/images/premium.png" alt="EBIKEPREMIUM" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <div class="title-status-wrapper">
+                            <h3 class="project-title">
+                                <span>🚲</span>
+                                EBIKEPREMIUM
+                            </h3>
+                            <span class="project-status status-archived">
+                                <i class="fas fa-history"></i>
+                                2019-2022
+                            </span>
+                        </div>
+                        <p class="project-description">
+                            Gestion complète de la présence en ligne de la boutique.
+                        </p>
+                        <ul class="project-features">
+                            <li>🛍️ Gestion du site e-commerce</li>
+                            <li>📝 Création de contenu</li>
+                            <li>📈 SEO et marketing digital</li>
+                            <li>👥 Gestion relation client</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-wordpress"></i>WordPress</span>
+                            <span class="tech-tag"><i class="fas fa-search"></i>SEO</span>
+                            <span class="tech-tag"><i class="fas fa-chart-line"></i>Analytics</span>
+                            <span class="tech-tag"><i class="fas fa-users"></i>CRM</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!------------------------------- CONTACT ---------------------------->
+
+        <section id="Contact">
+
+            <div class="form-container">
+                <h2 class="section title  text-center mb-5 title-gradient">
+                    CONTACT
+                </h2>
+                <div class="item">
+                    <div class="contact">
+                        <div class="first-text">
+                            <p>Besoin d'un profil hybride <br> Dev - Marketing ?</p>
+                        </div>
+                        <div class="form_image">
+                            <img src="./assets/images/Photo Collage Instagram Post.png" class="images_c " alt="">
+                        </div>
+                        <div class="social-links">
+                            <span class="second-text"> Je suis aussi sur:</span>
+                            <ul class="social-icons_contact">
+                                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/dhellye-shade-e-492386175/"><i
+                                            class="fab fa-linkedin"></i></a></li>
+                                <li><a href="https://github.com/Dhellyes"><i class="fab fa-github"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="submit-form">
+                        <h4 class="third-text"> C'est par ici! </h4>
+                        <form action="">
+                            <div class="input-box">
+                                <input type="text" class="input">
+                                <label for="">Nom</label>
+                            </div>
+                            <div class="input-box">
+                                <input type="email" class="input">
+                                <label for="">Email</label>
+                            </div>
+                            <div class="input-box">
+                                <textarea name="" id="message" cols="30" rows="10"></textarea>
+                                <label for="">Message</label>
+                            </div>
+                            <div>
+                                <input type="submit" value="Envoyez">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!---------------------- FOOTER ---------------------------->
+
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Menu à gauche -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#About">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Experience">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Contact">Contact</a>
+                </li>
+            </ul>
+
+            <!-- Copyright au milieu -->
+            <div class="copyright">
+                <p>Building dreams with code 💜</p>
+                <p>© 2024 Dhellye.S EWEMBE</p>
+            </div>
+
+            <!-- Réseaux sociaux à droite -->
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/dhellye-shade-e-492386175/"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Dhellyes"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="./assets/js/main.js"></script>
+
+</body>
+
+
+
+</html>

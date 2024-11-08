@@ -1,0 +1,255 @@
+// Import des variables (si nécessaire)
+@use 'variables' as *;
+
+
+
+.form-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: $main-font;
+
+    .item {
+        display: flex;
+        background: rgba($primary-color, 0.9);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 0 25px rgba($accent-color, 0.2);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba($accent-color, 0.1);
+
+
+        .contact {
+            
+            width: 50%;
+            padding: 40px;
+            background: linear-gradient(
+                135deg,
+                rgba($accent-color, 0.15),    
+                rgba($secondary-color, 0.15)  
+              ); //rgba($primary-color, 0.8);
+            border-left: 15px;
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: $holographic-gradient;
+                opacity: 0.1;
+                pointer-events: none;
+            }
+
+            .first-text {
+                font-size: 2rem;
+                font-weight: 600;
+                margin-bottom: 30px;
+                text-shadow: 0 0 15px rgba($accent-color, 0.5);
+            }
+
+          
+
+            .social-links {
+                margin-top: 30px;
+
+                .second-text {
+                    font-size: 1.5rem;
+                    margin-bottom: 15px;
+                    display: block;
+                    font-weight: 500;
+                    text-shadow: 0 0 15px rgba($accent-color, 0.5);
+                    padding-left: 10px; 
+                }
+
+                
+                
+            }
+        }
+        .social-icons_contact {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            transition: all 0.3s ease;
+            
+            a{
+           
+            gap: 20px;  // Espace entre les icônes
+            color: var(--text-color);
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            transition: all 0.3s ease;
+
+            &:hover {
+                color: var(--accent-color);
+                transform: translateY(-3px);
+            }
+        }
+    }
+
+
+    
+
+
+
+        .submit-form {
+            width: 50%;
+            padding: 40px;
+            background: rgba($primary-color, 0.95);
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: $holographic-gradient;
+                opacity: 0.05;
+                pointer-events: none;
+            }
+
+            .third-text {
+                color: $accent-color;
+                font-size: 1.8rem;
+                margin-bottom: 30px;
+                text-shadow: 0 0 10px rgba($accent-color, 0.3);
+            }
+
+            .input-box {
+                position: relative;
+                margin-bottom: 20px;
+
+                .input,
+                textarea {
+                    width: 100%;
+                    padding: 15px;
+                    border: 1px solid rgba($accent-color, 0.2);
+                    background: rgba($primary-color, 0.7);
+                    border-radius: 10px;
+                    color: $text-color;
+                    font-size: 1rem;
+                    transition: all $transition-speed ease;
+
+                    &:focus {
+                        border-color: $accent-color;
+                        outline: none;
+                        box-shadow: 0 0 10px rgba($accent-color, 0.2);
+
+                        +label {
+                            top: -12px;
+                            left: 15px;
+                            font-size: 0.8rem;
+                            background: $primary-color;
+                            padding: 0 5px;
+                            color: rgba($text-color, 0.8);
+                        }
+                    }
+                }
+
+                label {
+                    position: absolute;
+                    top: 50%;
+                    left: 15px;
+                    transform: translateY(-50%);
+                    color: rgba($text-color, 0.8);
+                    transition: all $transition-speed ease;
+                    pointer-events: none;
+                }
+
+                textarea {
+                    min-height: 150px;
+                    resize: none;
+
+                    +label {
+                        top: 20px;
+                    }
+                }
+            }
+
+            input[type="submit"] {
+                width: 100%;
+                padding: 15px;
+                border: 1px solid rgba($accent-color, 0.3);
+                border-radius: 10px;
+                background: rgba($accent-color, 0.1);
+                color: $accent-color;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all $transition-speed ease;
+
+                &:hover {
+                    background: $accent-color;
+                    color: $text-color;
+                    transform: translateY(-2px);
+                    box-shadow: 0 0 20px rgba($accent-color, 0.4);
+                }
+            }
+        }
+    }
+}
+/* Media Queries */
+@media (max-width: 768px) {
+    .form-container .item {
+        flex-direction: column;
+
+        .contact {
+            display: none; /* Cache la section contact sur mobile */
+        }
+
+        .submit-form {
+            width: 100%;
+            padding: 30px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container .item {
+        .submit-form {
+            padding: 20px;
+
+            .first-text,
+            .third-text {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+/**.images_c{
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; // Centre horizontalement
+    text-align: center; // Centre le texte
+
+}
+
+.socila-media{
+    display: flex;
+   list-style: none;
+}
+
+ul li{
+    padding-left: 15px;
+    font-size: 24px;
+    margin-top: 10px;
+}
+i{
+    background: #8f50ec;
+    padding: 5px;
+    border-radius: 5px;
+    transition: 3s;
+    color: white;
+}
+.socila-media i:hover {
+    background: white; 
+    color: #8f50ec;
+}
+*/

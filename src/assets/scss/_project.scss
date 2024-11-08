@@ -1,0 +1,235 @@
+@use 'variables' as *;
+
+
+
+/* Style général de la section */
+.projects-section {
+    background: var(--primary-color);
+    padding: 2rem 1rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Container des projets avec grid */
+.projects-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 projets par ligne */
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+/* Style de la carte projet */
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Effet hover sur la carte */
+.project-card:hover {
+    transform: translateY(-5px);
+    background: var(--holographic-gradient);
+}
+
+/* Style du titre avec emoji */
+.project-title {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Conteneur du titre et du statut */
+.title-status-wrapper {
+    display: flex;
+    justify-content: space-between; /* Sépare le titre et le statut */
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap; /* Pour le responsive */
+    gap: 1rem;
+}
+
+/* Style du titre */
+.project-title {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin: 0.5rem; /* Enlève la marge par défaut */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 1; /* Permet au titre de se réduire si nécessaire */
+}
+
+/* Style du badge de statut */
+.project-status {
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* Styles spécifiques pour chaque statut */
+.status-completed {
+    background: rgba(46, 213, 115, 0.9);
+    color: #ffffff;
+}
+
+.status-ongoing {
+    background: rgba(255, 171, 0, 0.9);
+    color: #ffffff;
+}
+
+.status-archived {
+    background: rgba(255, 255, 255, 0.9);
+    color: #1a1a2e;
+}
+
+/* Style de la description */
+.project-description {
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Style de la liste des caractéristiques */
+.project-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+.project-features li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Container des technologies */
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: auto;
+}
+
+/* Style des tags technologiques */
+.tech-tag {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* Icons pour les technologies */
+.tech-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+/* Media Queries 
+@media (max-width: 1024px) {
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}*/
+
+@media (max-width: 1000px) {
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-card {
+        padding: 1.5rem;
+    }
+}
+
+
+
+.project-image-container {
+    width: 100%;
+    height: 250px; /* Hauteur fixe pour l'image */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Style de l'image */
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Pour que l'image couvre bien l'espace */
+    transition: transform 0.5s ease;
+}
+
+
+
+
+/*j appele les couleur */
+/*
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding: 3rem;
+
+
+    .navbar-left {
+        display: flex;
+        gap: 1rem;
+
+    }
+
+    .navbar-center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        color: token.$clr_black;
+
+        
+    }
+
+    .navbar-right {
+        border-right: solid 1px token.$clr_black;
+        padding-inline: 0.5rem;
+        height: 24px;
+        object-fit: contain;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+
+    .navbar-menu {
+        display: flex;
+        gap: 1rem;
+    }
+
+} j appele les couleur */
+
+//__________petit memu_______________
+

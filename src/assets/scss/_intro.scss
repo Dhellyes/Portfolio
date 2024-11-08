@@ -1,0 +1,211 @@
+@use 'variables' as *;
+
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+
+#centerContent {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  text-align: center;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+  padding: 3rem;
+  border-radius: 20px;
+  background: rgba(26, 26, 46, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 40px rgba(195, 118, 229, 0.15);
+  border: 1px solid rgba(195, 118, 229, 0.1);
+}
+
+.title {
+  font-size: 4.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(
+      45deg,
+      var(--accent-color),
+      var(--secondary-color),
+      var(--accent-color)
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradient 3s ease infinite;
+  font-weight: 700;
+  letter-spacing: -1px;
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(
+      90deg,
+      transparent,
+      var(--accent-color),
+      var(--secondary-color),
+      var(--accent-color),
+      transparent
+  );
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+  color: var(--text-color);
+  opacity: 0;
+  letter-spacing: 2px;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+  to {
+      opacity: 0.8;
+      transform: translateY(0);
+  }
+}
+
+.enter-button {
+  padding: 1.2rem 3rem;
+  font-size: 1.2rem;
+  background: transparent;
+  border: 2px solid var(--accent-color);
+  border-radius: 30px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.enter-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(
+      90deg,
+      var(--accent-color),
+      var(--secondary-color)
+  );
+  transition: 0.5s ease;
+  z-index: -1;
+}
+
+.enter-button:hover::before {
+  width: 100%;
+}
+
+.enter-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(195, 118, 229, 0.3);
+}
+
+        /* Contenu principal (initialement caché) */
+        #mainContents {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: var(--primary-color);
+          visibility: hidden;
+          opacity: 0;
+          transition: opacity 0.5s ease;
+          z-index: 3;
+      }
+
+
+
+        /* Media Queries pour différentes tailles d'écran */
+        @media (max-width: 768px) {
+          #centerContent {
+              padding: 2rem;
+              width: 90%;
+          }
+
+          .title::after {
+              bottom: -5px;
+          }
+
+          /* Ajustement du nombre de particules pour les performances sur mobile */
+          .particle-density {
+              --particle-count: 50;
+          }
+      }
+
+      @media (max-width: 480px) {
+          #centerContent {
+              padding: 1.5rem;
+              width: 95%;
+          }
+
+          .enter-button {
+              width: 100%;
+              padding: 0.8rem 1.5rem;
+          }
+
+          /* Réduction supplémentaire des particules pour les très petits écrans */
+          .particle-density {
+              --particle-count: 30;
+          }
+      }
+
+      /* Support pour les appareils en mode paysage */
+      @media (max-height: 600px) and (orientation: landscape) {
+          #centerContent {
+              transform: translate(-50%, -50%) scale(0.8);
+              padding: 1rem;
+          }
+
+          .subtitle {
+              margin-bottom: 1rem;
+          }
+      }
+
+      /* Support pour les écrans à haute densité de pixels */
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+          .title, .subtitle {
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+          }
+      }
+
+      /* Support pour la préférence de réduction de mouvement */
+      @media (prefers-reduced-motion: reduce) {
+          .title, .subtitle, .enter-button, #centerContent {
+              animation: none;
+              transition: opacity 0.1s ease;
+          }
+
+          .particle-density {
+              --particle-count: 20;
+          }
+      }
+
+
