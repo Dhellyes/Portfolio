@@ -6,7 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    main: './src/assets/js/main.js'
+    main: path.resolve(__dirname, 'src/assets/js/main.js')
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -36,7 +36,7 @@ module.exports = {
         test: /\.(png|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'images/[name][ext]'
+          filename: 'assets/images/[name][ext]'
         }
       },
       {
@@ -47,13 +47,12 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: path.resolve(__dirname, 'src/index.html'),
       filename: 'index.html'
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].css'
+      filename: 'assets/css/[name].css'
     }),
-    // Ajout du CopyWebpackPlugin pour le fichier _redirects
     new CopyWebpackPlugin({
       patterns: [
         {
