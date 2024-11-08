@@ -1,11 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
   entry: {
-    main: './src/assets/js/main.js'  // Simplification du chemin d'entrée
+    main: './src/assets/js/main.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -51,11 +52,20 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css'
+    }),
+    // Ajout du CopyWebpackPlugin pour le fichier _redirects
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/_redirects'),
+          to: path.resolve(__dirname, 'dist')
+        }
+      ]
     })
   ],
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'),  // Changé de 'src' à 'dist'
+      directory: path.join(__dirname, 'dist'),
     },
     hot: true,
     port: 3001,
@@ -67,7 +77,7 @@ module.exports = {
     },
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json'],  // Ajout des extensions
-    modules: ['node_modules', 'src']       // Ajout des chemins de modules
+    extensions: ['.js', '.jsx', '.json'],
+    modules: ['node_modules', 'src']
   }
 };
