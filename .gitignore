@@ -1,25 +1,5 @@
-# Dépendances
 node_modules/
-package-lock.json
-
-# Build
 dist/
-
-# IDE
-.vscode/
-.idea/
-
-# OS
 .DS_Store
-Thumbs.db
-
-# Images originales (non optimisées)
-src/assets/images/*.png
-src/assets/images/*.JPEG
-src/assets/images/*.jpeg
-src/assets/images/*.jpg
-!src/assets/images/optimized/*.jpg
-
-# Logs
-*.log
-npm-debug.log*
+.env
+.vscode/
