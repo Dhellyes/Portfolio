@@ -188,6 +188,45 @@ document.addEventListener('DOMContentLoaded', function() {
 /// 
 
 
+document.querySelector('form[name="contact"]').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Vérification des champs
+    const name = this.querySelector('input[name="name"]');
+    const email = this.querySelector('input[name="email"]');
+    const message = this.querySelector('textarea[name="message"]');
+    
+    // Validation
+    if (!name.value || !email.value || !message.value) {
+        [name, email, message].forEach(field => {
+            if (!field.value) {
+                field.classList.add('error');
+                setTimeout(() => field.classList.remove('error'), 3000);
+            }
+        });
+        return;
+    }
+
+    // Préparation des données pour Netlify
+    const formData = new FormData(this);
+    
+    // Envoi à Netlify
+    fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+    })
+    .then(() => {
+        // Redirection vers la page de succès
+        window.location.href = '/success.html';
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('Une erreur est survenue. Veuillez réessayer.');
+    });
+});
+
+
 // document.addEventListener('DOMContentLoaded', function() {
 //     const form = document.querySelector('form[name="contact"]');
 //     const overlay = document.querySelector('.success-overlay');
