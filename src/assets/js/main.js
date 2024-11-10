@@ -187,56 +187,63 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /// 
 
-document.querySelector('form[name="contact"]').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Vérification des champs
-    const name = this.querySelector('input[name="name"]');
-    const email = this.querySelector('input[name="email"]');
-    const message = this.querySelector('textarea[name="message"]');
-    
-    // Validation
-    if (!name.value || !email.value || !message.value) {
-        [name, email, message].forEach(field => {
-            if (!field.value) {
-                field.classList.add('error');
-                setTimeout(() => field.classList.remove('error'), 3000);
-            }
-        });
-        return;
-    }
 
-    // Préparation des données pour Netlify
-    const formData = new FormData(this);
+// document.addEventListener('DOMContentLoaded', function() {
+//     const form = document.querySelector('form[name="contact"]');
+//     const overlay = document.querySelector('.success-overlay');
 
-    // Envoi à Netlify
-    fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
-    })
-    .then(() => {
-        // Afficher l'overlay
-        const overlay = document.querySelector('.success-overlay');
-        overlay.style.display = 'flex';
-        setTimeout(() => overlay.classList.add('active'), 10);
+//     form.addEventListener('submit', function(e) {
+//         e.preventDefault();
         
-        // Reset le formulaire
-        this.reset();
+//         // Validation des champs
+//         const name = this.querySelector('input[name="name"]');
+//         const email = this.querySelector('input[name="email"]');
+//         const message = this.querySelector('textarea[name="message"]');
+//         const submitButton = this.querySelector('input[type="submit"]');
 
-        // Gérer le bouton retour
-        const returnButton = overlay.querySelector('.return-button');
-        returnButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            overlay.classList.remove('active');
-            setTimeout(() => {
-                overlay.style.display = 'none';
-                window.location.href = '#About';
-            }, 300);
-        });
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-        alert('Une erreur est survenue. Veuillez réessayer.');
-    });
-});
+//         // Vérification
+//         if (!name.value || !email.value || !message.value) {
+//             [name, email, message].forEach(field => {
+//                 if (!field.value) {
+//                     field.classList.add('error');
+//                     setTimeout(() => field.classList.remove('error'), 3000);
+//                 }
+//             });
+//             return;
+//         }
+
+//         // Préparation des données
+//         const formData = new FormData(this);
+//         formData.append("form-name", "contact");
+
+//         // Envoi à Netlify
+//         fetch("/", {
+//             method: "POST",
+//             headers: { "Content-Type": "application/x-www-form-urlencoded" },
+//             body: new URLSearchParams(formData).toString()
+//         })
+//         .then(response => {
+//             if (response.ok) {
+//                 // Afficher l'overlay
+//                 overlay.style.display = 'flex';
+//                 // Reset le formulaire
+//                 form.reset();
+//                 // Réactiver le bouton
+//                 submitButton.value = "Envoyez";
+//                 submitButton.disabled = false;
+//             } else {
+//                 throw new Error('Erreur réseau');
+//             }
+//         })
+//         .catch(error => {
+//             console.error('Error:', error);
+//             alert('Une erreur est survenue. Veuillez réessayer.');
+//         });
+//     });
+
+    // Gestion du bouton retour dans l'overlay
+//     document.querySelector('.return-button').addEventListener('click', () => {
+//         overlay.style.display = 'none';
+//         window.location.href = '#About';
+//     });
+// });
