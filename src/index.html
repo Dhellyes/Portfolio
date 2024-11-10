@@ -559,9 +559,11 @@
                     </div>
                     <div class="submit-form">
                         <h4 class="third-text"> C'est par ici! </h4>
-                        <form name="contact" method="POST" data-netlify="true"  onSubmit="submit" data-netlify-honeypot="bot-field" action="/success/">
+                        <form name="contact" method="POST" data-netlify="true"  onSubmit="submit" 
+                        data-netlify-honeypot="bot-field" action="./success.html"
+                        >
                             <!-- Champs cachés requis -->
-                            <input type="hidden" name="bot-field" />
+                            <input class="d-none" type="hidden" name="bot-field" />
 
                             <div class="input-box">
                                 <input type="text" name="nom" class="input" required placeholder=" ">
