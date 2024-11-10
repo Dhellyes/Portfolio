@@ -563,15 +563,15 @@
                             <input type="hidden" name="bot-field" />
 
                             <div class="input-box">
-                                <input type="text" class="input">
+                                <input type="text" class="input" required placeholder=" ">
                                 <label for="">Nom</label>
                             </div>
                             <div class="input-box">
-                                <input type="email" class="input">
+                                <input type="email" class="input" required placeholder=" ">
                                 <label for="">Email</label>
                             </div>
                             <div class="input-box">
-                                <textarea name="" id="message" cols="30" rows="10"></textarea>
+                                <textarea name="" id="message" cols="30" rows="10" required placeholder=" "></textarea>
                                 <label for="">Message</label>
                             </div>
                             <div>
@@ -580,9 +580,6 @@
                         </form>
                     </div>
                 </div>
-
-
-
             </div>
         </section>
 
@@ -590,8 +587,6 @@
 
 
     <!---------------------- FOOTER ---------------------------->
-
-
 
     <footer class="footer">
         <div class="footer-container">
@@ -625,6 +620,18 @@
             </div>
         </div>
     </footer>
+
+
+    <!----------- Ajoutez ceci juste avant la fermeture du body -->
+<div class="success-overlay" style="display: none;">
+    <div class="success-message">
+        <h1>Message envoyé avec succès !</h1>
+        <p>Merci pour votre message. bbbbbJe vous répondrai dans les plus brefs délais.</p>
+        <a href="#About" class="return-button">
+            Retour à l'accueil <span class="heart">♥</span>
+        </a>
+    </div>
+</div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

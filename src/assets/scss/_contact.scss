@@ -69,6 +69,8 @@
                 
             }
         }
+
+
         .social-icons_contact {
             display: flex;
             align-items: center;
@@ -119,11 +121,10 @@
                 margin-bottom: 30px;
                 text-shadow: 0 0 10px rgba($accent-color, 0.3);
             }
-
             .input-box {
                 position: relative;
                 margin-bottom: 20px;
-
+            
                 .input,
                 textarea {
                     width: 100%;
@@ -134,8 +135,14 @@
                     color: $text-color;
                     font-size: 1rem;
                     transition: all $transition-speed ease;
-
-                    &:focus {
+                    
+                    // Important : ajout de ces règles
+                    &::placeholder {
+                        opacity: 0;
+                    }
+                    
+                    &:focus,
+                    &:not(:placeholder-shown) {
                         border-color: $accent-color;
                         outline: none;
                         box-shadow: 0 0 10px rgba($accent-color, 0.2);
@@ -147,9 +154,12 @@
                             background: $primary-color;
                             padding: 0 5px;
                             color: rgba($text-color, 0.8);
+                            transform: translateY(0);
                         }
                     }
                 }
+                
+
 
                 label {
                     position: absolute;
@@ -159,6 +169,8 @@
                     color: rgba($text-color, 0.8);
                     transition: all $transition-speed ease;
                     pointer-events: none;
+                    padding: 0 5px;
+                    z-index: 1;
                 }
 
                 textarea {
@@ -167,9 +179,17 @@
 
                     +label {
                         top: 20px;
+                        transform: translateY(0);
+                    }
+            
+                    &:focus + label,
+                    &:not(:placeholder-shown) + label {
+                        top: -12px;
+                        transform: translateY(0);
                     }
                 }
             }
+                   
 
             input[type="submit"] {
                 width: 100%;
@@ -221,35 +241,3 @@
         }
     }
 }
-
-/**.images_c{
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; // Centre horizontalement
-    text-align: center; // Centre le texte
-
-}
-
-.socila-media{
-    display: flex;
-   list-style: none;
-}
-
-ul li{
-    padding-left: 15px;
-    font-size: 24px;
-    margin-top: 10px;
-}
-i{
-    background: #8f50ec;
-    padding: 5px;
-    border-radius: 5px;
-    transition: 3s;
-    color: white;
-}
-.socila-media i:hover {
-    background: white; 
-    color: #8f50ec;
-}
-*/

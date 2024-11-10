@@ -185,75 +185,58 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+/// 
 
-
-
-
-// Création de la grille
-/**document.addEventListener('DOMContentLoaded', function() {
-    const gridContainer = document.getElementById('gridContainer');
-    const centerContent = document.getElementById('centerContent');
+document.querySelector('form[name="contact"]').addEventListener('submit', function(e) {
+    e.preventDefault();
     
-    // Créer les éléments de la grille
-    for (let i = 0; i < 400; i++) {
-        const div = document.createElement('div');
-        div.className = 'grid-item';
-        gridContainer.appendChild(div);
+    // Vérification des champs
+    const name = this.querySelector('input[name="name"]');
+    const email = this.querySelector('input[name="email"]');
+    const message = this.querySelector('textarea[name="message"]');
+    
+    // Validation
+    if (!name.value || !email.value || !message.value) {
+        [name, email, message].forEach(field => {
+            if (!field.value) {
+                field.classList.add('error');
+                setTimeout(() => field.classList.remove('error'), 3000);
+            }
+        });
+        return;
     }
 
-    // Animation d'apparition de la grille
-    setTimeout(() => {
-        const items = document.querySelectorAll('.grid-item');
-        items.forEach((item, index) => {
+    // Préparation des données pour Netlify
+    const formData = new FormData(this);
+
+    // Envoi à Netlify
+    fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+    })
+    .then(() => {
+        // Afficher l'overlay
+        const overlay = document.querySelector('.success-overlay');
+        overlay.style.display = 'flex';
+        setTimeout(() => overlay.classList.add('active'), 10);
+        
+        // Reset le formulaire
+        this.reset();
+
+        // Gérer le bouton retour
+        const returnButton = overlay.querySelector('.return-button');
+        returnButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            overlay.classList.remove('active');
             setTimeout(() => {
-                item.style.opacity = '1';
-                item.style.transform = 'scale(1)';
-            }, index * 10);
+                overlay.style.display = 'none';
+                window.location.href = '#About';
+            }, 300);
         });
-
-        // Afficher le contenu central
-        setTimeout(() => {
-            centerContent.style.opacity = '1';
-            centerContent.style.transform = 'translate(-50%, -50%)';
-        }, 1000);
-    }, 500);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('Une erreur est survenue. Veuillez réessayer.');
+    });
 });
-
-// Fonction pour entrer sur le site
-function enterSite() {
-    const mainContent = document.getElementById('mainContent');
-    const introContainer = document.getElementById('gridContainer');
-    const centerContent = document.getElementById('centerContent');
-    
-    // Affiche le contenu principal
-    mainContent.style.visibility = 'visible';
-    mainContent.style.opacity = '1';
-    
-    // Cache l'intro après un délai
-    setTimeout(() => {
-        introContainer.style.display = 'none';
-        centerContent.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Active le scroll
-    }, 500);
-}
-
-// Désactive le scroll au chargement
-document.body.style.overflow = 'hidden';
-
-document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        const front = card.querySelector('.card-front');
-        const back = card.querySelector('.card-back');
-        
-        front.style.display = 'none';
-        back.style.display = 'block';
-    });
-
-    card.addEventListener('mouseleave', () => {
-        const front = card.querySelector('.card-front');
-        const back = card.querySelector('.card-back');
-        
-        front.style.display = 'block';
-        back.style.display = 'none';
-    });
-});*/
